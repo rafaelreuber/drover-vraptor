@@ -1,0 +1,33 @@
+* {
+	font-family: "Lucida Sans", Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+.required-label {
+	font-weight: bold;
+}
+
+.error-field {
+	border: 1px solid red;
+}
+
+.datepicker {
+	text-align: right;
+	
+}
+
+#header {
+	background: #7F99BE url(/drover/static/images/layout-browser-hd-bg.gif) repeat-x center;
+	padding-left: Opx;
+}
+
+#header h1 {
+	font-size: 16px;
+	color: #fff;
+	font-weight: normal;
+	padding: 5px 10px;
+}
+
+.novo {
+    background-image:url(/drover/commons/icons/14_layer_newlayer.png) !important;
+}

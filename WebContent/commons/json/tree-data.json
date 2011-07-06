@@ -1,0 +1,24 @@
+[{
+    text:'Cadastro',
+    expanded: true,
+    children:[{
+        text:'Cliente',
+        id:'cliente',
+        leaf:true
+    },{
+        text:'Movie',
+        id:'movie',
+        leaf:true
+    }]
+},{
+    text:'Relatórios',
+    children:[{
+        text:'Absolute Layout Form',
+        id:'abs-form',
+        leaf:true
+    },{
+        text:'Tabs with Nested Layouts',
+        id:'tabs-nested-layouts',
+        leaf:true
+    }]
+}]

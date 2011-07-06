@@ -1,0 +1,8 @@
+{
+	success: false,
+	errors: {
+		title: 'Sounds like a Chuck Norris!!!',
+		ano: 'Este ano é muito velho!'
+	},
+	errormsg: 'Ocorreu um erro interno, por favor verifique todos os campos'
+}
