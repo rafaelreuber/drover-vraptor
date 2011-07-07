@@ -29,8 +29,9 @@ import com.thoughtworks.xstream.converters.SingleValueConverter;
             xstream.registerConverter(new   SingleValueConverter() {    
         
                public String toString(Object value)
-               {    
-                     return new  SimpleDateFormat("dd/MM/yyyy").format(value);    
+               {
+            	     throw new RuntimeException();
+                     //return new  SimpleDateFormat("dd/MM/yyyy").format(value);    
                }    
         
                public boolean canConvert(Class clazz) {    
