@@ -1,7 +1,5 @@
 package br.com.drover.controller;
 
-import static br.com.caelum.vraptor.view.Results.json;
-
 import java.util.List;
 
 import br.com.caelum.vraptor.Consumes;
@@ -11,6 +9,7 @@ import br.com.drover.dao.ClienteDAO;
 import br.com.drover.entity.Cidade;
 import br.com.drover.entity.Cliente;
 import br.com.drover.entity.ClienteWrapper;
+import br.com.drover.util.ExtJSJsonImpl;
 
 @Resource
 public class ClientesController {
@@ -24,10 +23,10 @@ public class ClientesController {
 		 this.clienteDao = clienteDao;
 	}
 	
-   public void lista(){
+   public void lista() 
+   {
 			List<Cliente> clientes = clienteDao.findAll();
-		//	result.use(resul. ).from(clientes).success(true).serialize();
-			result.use(json()).from(clientes, "data").serialize();
+			result.use(ExtJSJsonImpl.class).from(clientes).success().serialize();
 	}
 
    @Consumes
@@ -36,8 +35,11 @@ public class ClientesController {
 		   if(cliente.getCliente().getId() == 0){
 			   cliente.getCliente().setId(null);
 		   }
-		   cliente.getCliente().setCidade(new Cidade(130));
-		   clienteDao.save(cliente.getCliente());
+		   //TODO Arrumar essa esculhambaÃ§Ã£o.
+		    cliente.getCliente().setCidade(new Cidade(130));
+		    clienteDao.save(cliente.getCliente());
+		   
+			result.use(ExtJSJsonImpl.class).from(cliente).success().serialize();
    }
 
 	public ClienteDAO getClienteDao() {

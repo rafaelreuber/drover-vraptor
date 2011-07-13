@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 
+import br.com.caelum.vraptor.ioc.Component;
 import br.com.drover.dao.CidadeDAO;
 import br.com.drover.entity.Cidade;
 import br.com.drover.entity.Estado;
@@ -14,6 +15,7 @@ import br.com.drover.entity.Estado;
  * @autor Rafael Reuber (rafaelreuber@gmail.com)
  * @sinse 09/03/2011
  */
+@Component
 public class CidadeDAOImpl extends GenericDAOImpl<Cidade, Integer> implements
 		CidadeDAO {
 

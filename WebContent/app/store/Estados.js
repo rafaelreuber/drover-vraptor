@@ -1,19 +1,15 @@
 
 Ext.define('Drover.store.Estados',{
 	extend: 'Ext.data.Store',
-	
 	model: 'Drover.model.Estado',
-	
 	autoLoad: true,
 	
-	proxy:{
-		type: 'ajax',
-		api: {
-			read: '/drover/estado/getEstados.action'
-		},
+	proxy: {
+		type: 'rest',
+		url: '/drover/estados',
 		reader: {
 			type: 'json',
-			root: 'estados',
+			root: 'data',
 			sucessProperty: 'success'
 		}
 	}

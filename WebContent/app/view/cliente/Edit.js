@@ -62,7 +62,7 @@ Ext.define('Drover.view.cliente.Edit',{
 				        	xtype: 'container',
 				        	layout: 'hbox',
 				        	items:[{
-				        				name:'cliente.rg',
+				        				name:'rg',
 				        				fieldLabel: 'RG',
 				        				fieldWidth: 12,
 				        				maxLength: 13,
@@ -74,7 +74,7 @@ Ext.define('Drover.view.cliente.Edit',{
 		        				xtype: 'datefield',
 		        				flex: 3,
 		        				labelWidth: 110,
-		        				format: 'd/m/y',
+		        				format: 'd/m/Y',
 		        				margins: '0 0 0 6',
 				        	},{
 		        				name:'dataNascimento',
@@ -82,7 +82,7 @@ Ext.define('Drover.view.cliente.Edit',{
 		        				xtype: 'datefield',
 		        				flex: 3,
 		        				labelWidth: 110,
-		        				format: 'd/m/y',
+		        				format: 'd/m/Y',
 		        				margins: '0 0 0 6',
 				        	}]
 				        },{ // Bairro Cidade e UF

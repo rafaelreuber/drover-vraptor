@@ -9,16 +9,14 @@ Ext.define('Drover.model.Cliente',{
 					{name: 'rg', type: 'int'},
 					{name: 'numero', type: 'int'},
 					{name: 'orgaoExpedidor', type: 'string'},
-					{name: 'dataExpedicao', type: 'string', convert: dataExpedicao},
+					{name: 'dataExpedicao', type: 'string', dateFomart:'d/m/Y'},
 					{name: 'cidade', type: 'string'},
 					{name:'logradouro', type: 'string'},
 					{name:'bairro', type: 'string'},
-					{name: 'dataNascimento', type: 'string'},
+					{name: 'dataNascimento', type: 'string', dateFomart:'d/m/Y'},
 					{name: 'limiteCredito', type: 'float'}
 		 ]
 	
 });
 
-function dataExpedicao(v, record){
-		return null;
-}
+

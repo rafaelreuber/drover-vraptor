@@ -1,9 +1,6 @@
 package br.com.drover.util;
 
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.caelum.vraptor.interceptor.TypeNameExtractor;
@@ -12,7 +9,7 @@ import br.com.caelum.vraptor.serialization.ProxyInitializer;
 import br.com.caelum.vraptor.serialization.xstream.XStreamJSONSerialization;
 
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.converters.SingleValueConverter;
+import com.thoughtworks.xstream.converters.basic.DateConverter;
       
     @Component    
     public class CustomJSONSerialization extends XStreamJSONSerialization {    
@@ -25,24 +22,9 @@ import com.thoughtworks.xstream.converters.SingleValueConverter;
        @Override    
         public XStream getXStream() {    
             XStream xstream = super.getXStream();    
-            
-            xstream.registerConverter(new   SingleValueConverter() {    
-        
-               public String toString(Object value)
-               {
-            	     throw new RuntimeException();
-                     //return new  SimpleDateFormat("dd/MM/yyyy").format(value);    
-               }    
-        
-               public boolean canConvert(Class clazz) {    
-                    return Date.class.isAssignableFrom(clazz);    
-               }    
-        
-               public Object fromString(String value) {    
-                  return null; //não é usado    
-               }    
-            });     
-            return xstream;    
+            xstream.registerConverter(new DateConverter("dd/MM/yyyy", new String[0]));
+            xstream.aliasSystemAttribute(null, "class");  
+            return xstream;  
         }    
           
     }     

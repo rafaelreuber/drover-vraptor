@@ -14,9 +14,6 @@ import javax.persistence.TemporalType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.thoughtworks.xstream.annotations.XStreamConverter;
-import com.thoughtworks.xstream.converters.extended.ToStringConverter;
-
 @Entity
 @SequenceGenerator(name="CLIENTE_S",initialValue=1,sequenceName="CLIENTE_S")
 public class Cliente {
@@ -36,6 +33,7 @@ public class Cliente {
 	
 	private Long rg;
 
+	@Temporal(TemporalType.DATE)
 	private Date dataExpedicao ;
 
 	private String orgaoExpedidor;
