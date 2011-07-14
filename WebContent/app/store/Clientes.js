@@ -11,7 +11,7 @@ Ext.define('Drover.store.Clientes',{
 			api: {
 				read 	: '/drover/clientes/lista',
 				create  : '/drover/clientes/criar',
-				update  : '/drover/cliente/create.action',
+				update  : '/drover/clientes/criar',
 				destroy : '/drover/cliente/delete.action'
 			},
 			url: '/drover/clientes',

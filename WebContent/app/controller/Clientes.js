@@ -51,7 +51,7 @@ Ext.define('Drover.controller.Clientes',{
     	  
     	   cliente.set(values);
     	   
-    	    if(cliente.get('id') ==  '0'){
+    	    if(!cliente.get('id')){
         	    clienteStore.insert(0,cliente);	
     	    }
     	    

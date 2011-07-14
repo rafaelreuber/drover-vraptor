@@ -32,14 +32,11 @@ public class ClientesController {
    @Consumes
    public void criar(ClienteWrapper cliente)
    {
-		   if(cliente.getCliente().getId() == 0){
-			   cliente.getCliente().setId(null);
-		   }
-		   //TODO Arrumar essa esculhambaÃ§Ã£o.
-		    cliente.getCliente().setCidade(new Cidade(130));
-		    clienteDao.save(cliente.getCliente());
-		   
-			result.use(ExtJSJsonImpl.class).from(cliente).success().serialize();
+	   //TODO Arrumar essa esculhambação
+	    cliente.getCliente().setCidade(new Cidade(130));
+	    clienteDao.save(cliente.getCliente());
+	   
+		result.use(ExtJSJsonImpl.class).from(cliente).success().serialize();
    }
 
 	public ClienteDAO getClienteDao() {
