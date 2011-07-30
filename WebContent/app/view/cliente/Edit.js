@@ -30,12 +30,14 @@ Ext.define('Drover.view.cliente.Edit',{
 				        				name: 'nome',
 				        				fieldLabel: 'Nome',
 				        				xtype: 'textfield',
+				        				allowBlank: false,
 				        				flex: 2,
 				        				width: 380
 				        		},{
 				        				name: 'cpfCnpj',
 				        				fieldLabel: 'CPF',
 				        				xtype: 'textfield',
+				        				allowBlank: false,
 				        				flex: 1,
 				        				width: 150,
 				        				margins: '0 0 0 6',
@@ -48,12 +50,14 @@ Ext.define('Drover.view.cliente.Edit',{
 				        			    name: 'logradouro',
 				        				fieldLabel: 'Logradouro',
 				        				xtype: 'textfield',
+				        				allowBlank: false,
 				        				flex: 2
 				        	},{
 				        			   name: 'numeroCasa',
 				        			   fieldLabel: 'Nº',
 				        			   margins: '0 0 0 6',
 				        			   xtype: 'numberfield',
+				        			   allowBlank: false,
 				        			   labelWidth: 27,
 				        			   width: 50,
 				        			   flex: 1
@@ -94,7 +98,7 @@ Ext.define('Drover.view.cliente.Edit',{
 				        		        xtype: 'textfield',
 				        		        flex: 3
 				        	},{
-				        		name: 'cidade',
+				        		name: 'cidade_id',
 				        		fieldLabel: 'Cidade',
 				        		xtype: 'combobox',
 				        		store: 'Cidades',
