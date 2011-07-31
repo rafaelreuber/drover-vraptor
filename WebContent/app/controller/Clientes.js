@@ -6,8 +6,6 @@ Ext.define('Drover.controller.Clientes',{
 		models: ['Cliente','Estado','Cidade'],
 		
 		init: function(){
-			console.log('Inicializou o controller de clientes');
-			
 			this.control({
 				'clientelist':{
 					itemdblclick: this.editCliente
@@ -29,11 +27,8 @@ Ext.define('Drover.controller.Clientes',{
     	   view.down('form').loadRecord(record);
       },
       
-      criarCliente: function() {
-  //  	  var novoCliente = Ext.create('Drover.model.Cliente');
-    	  
+      criarCliente: function() {    	  
     	  var view = Ext.widget('clienteedit');
-  //  	  view.down('form').loadRecord(novoCliente);
       },
       
      updateCliente: function(button){
@@ -44,43 +39,46 @@ Ext.define('Drover.controller.Clientes',{
     	         form = win.down('form'),
     	         cliente = form.getRecord(),
     	         values = form.getValues();
-    	   
-    	   if(!cliente){
-    		   cliente =  Ext.create('Drover.model.Cliente');
-    	   }
     	  
-    	   cliente.set(values);
-    	   
-    	    if(!cliente.get('id')){
-        	    clienteStore.insert(0,cliente);	
-    	    }
-    	    
-    	    clienteStore.sync(); //Synchronizes the Store with its Proxy
-    	    win.close();
+    	  if(form.getForm().isValid()){
+    		  
+	    	   if(!cliente){
+	    		   cliente =  Ext.create('Drover.model.Cliente');
+	    	   }
+	    	   
+	    	   cliente.set(values);
+	    	   
+	    	   if(!cliente.get('id')){
+	        	    clienteStore.add(cliente);	
+	    	   }
+	    	    
+	    	   clienteStore.sync(); //Synchronizes the Store with its Proxy
+	    	   win.close();
+    	  } 	   
       },
       
       selectEstado: function(combo, record){
     	  	console.log('Tentou salvar um cliente');
+   
       },
       
       selectEstado: function(combo, record) {
-     //TODO Implementar filtro de cidades através da seleção do Estado 	  
 	    	  var estadoId = combo.getValue();
-	    	  
 	    	  var comboCity = Ext.getCmp('cidade-combobox');
 	    	  
-	    	  var city = comboCity.store.getAt(3);
-	    	  var estado_id = city.getEstado().get('id');
-	    	  
 	    	  comboCity.setDisabled(true);
-	    	  comboCity.setValue(' ');
-	    	  comboCity.store.removeAll();
+	    	 
+	    	  if(comboCity.store.isFiltered()) {
+	    		  comboCity.store.clearFilter();
+	    		  comboCity.clearValue();
+	    	  }
 	    	  
-	    	 comboCity.store.filter({
-	    		  params:  {estado : estadoId}
-	    	  });
+	    	 comboCity.store.filter('estado_id', estadoId);
 	    	   
 	    	 comboCity.setDisabled(false);
-	    	//  console.log('Tentou selecionar Estado ' + combo.getValue() );
       }
 });
+
+function filtrarCidades(record, id){
+	console.log('Ande tonha!');
+}
