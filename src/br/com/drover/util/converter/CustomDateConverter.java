@@ -1,4 +1,4 @@
-package br.com.drover.util;
+package br.com.drover.util.converter;
 
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 

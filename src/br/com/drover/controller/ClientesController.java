@@ -1,15 +1,19 @@
 package br.com.drover.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.codehaus.jettison.json.JSONArray;
 
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.drover.dao.ClienteDAO;
-import br.com.drover.entity.Cidade;
 import br.com.drover.entity.Cliente;
-import br.com.drover.entity.ClienteWrapper;
 import br.com.drover.util.ExtJSJsonImpl;
+import br.com.drover.util.ExtJSReturn;
+import static br.com.caelum.vraptor.view.Results.json;
 
 @Resource
 public class ClientesController {
@@ -27,17 +31,21 @@ public class ClientesController {
    {
 			List<Cliente> clientes = clienteDao.findAll();
 			result.use(ExtJSJsonImpl.class).from(clientes).success().serialize();
-	}
+   }
 
    @Consumes
-   public void criar(ClienteWrapper cliente)
+   public void criar(Cliente cliente)
    {
-	   //TODO Arrumar essa esculhambação
-	    cliente.getCliente().setCidade(new Cidade(130));
-	    clienteDao.save(cliente.getCliente());
-	   
+	   try {
+		   
+	   //TODO Entende por que o ExtJS não está entendendo a entidade Cliente.
+	    clienteDao.save(cliente);	   
 		result.use(ExtJSJsonImpl.class).from(cliente).success().serialize();
-   }
+		
+	    } catch (Exception e) {
+	    	mapError("Deu erro oh.");
+	    }	
+    }
 
 	public ClienteDAO getClienteDao() {
 		return clienteDao;
@@ -55,5 +63,14 @@ public class ClientesController {
 	public void setResult(Result result) {
 		this.result = result;
 	}
+	
+	public void mapError(String msg){
+
+		ExtJSReturn hs = new ExtJSReturn();
+		hs.setMessage(msg);
+		hs.setSucess(false);
+
+		result.use(ExtJSJsonImpl.class).from("Deu Erro").success(false).serialize();
+	} 
 	
 }
