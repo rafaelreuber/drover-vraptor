@@ -11,6 +11,9 @@ Ext.application({
 	],
 	
 	launch: function (){
+		
+		Ext.QuickTips.init();
+		
 		Ext.create('Ext.container.Viewport',{
 			layout: 'fit',
 			items:[{

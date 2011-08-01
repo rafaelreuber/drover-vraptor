@@ -20,11 +20,10 @@ public class Estado {
 	@GeneratedValue
 	private Integer id;
 	
-	@Column(length=3)
+	@Column(nullable=false,length=3)
 	private String  sigla;
 	
-	@Column(length=40)
-	@NotNull
+	@Column(nullable=false,length=40)
 	private String nome;
 	
 	public Estado() {

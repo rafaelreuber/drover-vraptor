@@ -1,5 +1,6 @@
 package br.com.drover.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,11 +21,10 @@ public class Cidade {
 	@GeneratedValue
 	private Integer id;
 	
-	@NotNull
+	@Column(nullable=false)
 	private String nome;
 
-	@ManyToOne
-	private Estado estado;
+	private Integer estado_id;
 	
 	public Cidade() {
 		
@@ -50,12 +50,12 @@ public class Cidade {
 		this.nome = nome;
 	}
 
-	public Estado getEstado() {
-		return estado;
+	public Integer getEstado() {
+		return estado_id;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setEstado(Integer estado) {
+		this.estado_id = estado;
 	}
 
 }

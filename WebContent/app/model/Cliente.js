@@ -10,13 +10,15 @@ Ext.define('Drover.model.Cliente',{
 					{name: 'numero', type: 'int'},
 					{name: 'orgaoExpedidor', type: 'string'},
 					{name: 'dataExpedicao', type: 'string', dateFomart:'d/m/Y'},
-					{name: 'cidade', type: 'string'},
 					{name: 'logradouro', type: 'string'},
 					{name: 'bairro', type: 'string'},
 					{name: 'dataNascimento', type: 'string', dateFomart:'d/m/Y'},
-					{name: 'limiteCredito', type: 'float'}
-		 ]
+					{name: 'limiteCredito', type: 'float'},
+					{name: 'cidade_id', type: 'int'}
+					
+		 ],
 	
+		belongsTo: {model:'Drover.model.Cidade', associatedName:'Cidade'}
 });
 
 

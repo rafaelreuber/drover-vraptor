@@ -20,7 +20,8 @@ Ext.define('Drover.view.user.Edit',{
 						items : [ {
 							xtype : 'textfield',
 							name : 'name',
-							fieldLabel : 'Name'
+							fieldLabel : 'Name',
+							allowBlank: false
 						}, {
 							xtype : 'textfield',
 							name : 'email',

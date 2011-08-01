@@ -3,6 +3,7 @@ package br.com.drover.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +30,7 @@ public class Cliente {
 	@Temporal(TemporalType.DATE)
 	private Date dataNascimento;
 	
+	@Column(unique=true)
 	private Long cpfCnpj;
 	
 	private Long rg;
@@ -52,8 +54,7 @@ public class Cliente {
 	
 	private String nomeMae;
 	
-	@ManyToOne
-	private Cidade cidade;
+	private Integer cidade_id;
 	
 	public Cliente() {
 		
@@ -104,13 +105,13 @@ public class Cliente {
 		this.bairro = bairro;
 	}
 
-	public Cidade getCidade() {
-		return cidade;
+	public Integer getCidade() {
+		return cidade_id;
 	}
 
 	@Autowired
-	public void setCidade(Cidade cidade) {
-		this.cidade = cidade;
+	public void setCidade(Integer cidade) {
+		this.cidade_id = cidade;
 	}
 
 	public Double getLimiteCredito() {

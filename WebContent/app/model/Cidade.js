@@ -5,6 +5,7 @@ Ext.define('Drover.model.Cidade',{
 	fields :[
 	         {name: 'id', type: 'int'},
 	         {name: 'nome', type: 'string'},
+	         {name: 'estado_id', type: 'string'},
 	],
 
 	belongsTo:{model: 'Drover.model.Estado', associatedName:'Estado'}
